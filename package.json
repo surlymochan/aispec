@@ -1,0 +1,10 @@
+{
+  "name": "aispec-cli",
+  "version": "0.3.0",
+  "description": "Initialize and verify aispec convention and templates in any repo",
+  "bin": { "aispec": "cli/bin/aispec.js" },
+  "files": ["cli"],
+  "scripts": { "link": "npm link" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/surlymochan/aispec.git" }
+}
