@@ -1,7 +1,7 @@
 # aispec 当前发布版本
 
 - **版本**：0.3.0（SP0003 合并）
-- **说明**：工作区 AI 规范与变更收敛的通用部分；**权威在 aispec/spec**；业务项目 aispec.md 为可选；独立仓库可采用；CLI（init/verify）；本仓库在 project 下为 **private/aispec-private**。
+- **说明**：工作区 AI 规范与变更收敛的通用部分；**权威在 aispec/spec**；业务项目 aispec.md 为可选；独立仓库可采用；CLI（init/verify）。
 
 ---
 
@@ -17,4 +17,4 @@
 
 ---
 
-**迭代历史**：SP0001、SP0002、SP0003（开源准备 + CLI + 目录 aispec-private）已合并；后续变更以新 SP 形式在 iteration/ 下开展，验收后合并到本 spec 并更新版本号。
+**迭代历史**：SP0001、SP0002、SP0003（开源准备 + CLI）已合并；后续变更以迭代形式开展，验收后合并到本 spec 并更新版本号。

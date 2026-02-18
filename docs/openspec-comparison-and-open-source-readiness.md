@@ -30,7 +30,7 @@
 | **文档** | README、CONVENTIONS（单份）、CHANGELOG；无独立 getting-started/concepts/commands 分层。 |
 | **规范与可扩展** | 无 schema 层；约定固定为 /mrd～/merge 与迭代目录结构。 |
 | **开源标配** | **无** LICENSE、CONTRIBUTING、MAINTAINERS、CODE_OF_CONDUCT。 |
-| **绑定** | 与「soul + project」强相关（soul 放置约定、PROGRESS、项目专属 RULE）；未做成「任意仓库可独立采用」的便携包。 |
+| **绑定** | 与「工作区 + 业务项目 aispec.md」可选相关（PROGRESS、项目专属规则）；独立仓库可仅采用 spec + 模板。 |
 
 ---
 
@@ -65,7 +65,7 @@
 
 | 项 | 说明 |
 |----|------|
-| **脱耦 project/soul** | 将 CONVENTIONS 中「soul 放置约定」改为**可选**：当用于「带 soul 的工作区」时如何放置 PROGRESS/RULE；当用于**独立仓库**时仅需 spec + 模板（或简化为「无 soul」模式说明）。 |
+| **脱耦工作区** | CONVENTIONS 中「业务项目 aispec.md」为**可选**：带工作区时可放置 PROGRESS 与项目专属规则；独立仓库仅需 spec + 模板。 |
 | **独立采用路径** | 文档化「仅用 aispec 约定」的用法：例如复制 `spec/CONVENTIONS.md` + `spec/templates/` 到目标仓库的 `.aispec/` 或 `docs/aispec/`；README 中注明「Agent 或人按 CONVENTIONS 执行」；无需 clone 整个 project。 |
 | **AGENTS.md 模板** | 提供可放入任意仓库的 **AGENTS.md** 片段或模板，指向「采用 aispec 时 Agent 必读的约定与入口」（CONVENTIONS 或精简版 quick reference）。 |
 
@@ -99,7 +99,7 @@
 
 ## 五、建议的下一步（可拆为 SP）
 
-1. **SP0003（建议）**：**开源基础** — 添加 LICENSE（MIT）、CONTRIBUTING.md、README 开源版（含「如何独立采用」与 OpenSpec 对比）；CONVENTIONS 中 soul 改为可选小节。
+1. **SP0003（建议）**：**开源基础** — 添加 LICENSE（MIT）、CONTRIBUTING.md、README 开源版（含「如何独立采用」与 OpenSpec 对比）；CONVENTIONS 中业务项目 aispec.md 为可选。
 2. **后续**：Getting Started + Concepts 短文档；可选 AGENTS.md 模板与通用 verify 脚本；design 模板与 delta 合并说明。
 
 完成 4.1 + 4.2 后，aispec 即可在**法律与可移植性**上达到可开源发布水平；4.3～4.4 提升采纳体验与一致性。

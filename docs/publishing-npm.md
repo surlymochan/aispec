@@ -59,7 +59,7 @@ npm pack --dry-run
 在 **cli** 目录下执行：
 
 ```bash
-cd private/aispec-private/cli   # 或你的 aispec 仓库下的 cli/
+cd cli   # 在 aispec 仓库根下进入 cli/
 npm publish
 ```
 

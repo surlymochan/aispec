@@ -4,27 +4,16 @@
 
 ---
 
-## 本地安装（本工作区推荐）：npm link
+## 本地安装（本机有 aispec 仓库时）：npm link
 
-若你正在 **project** 下开发（已有 `private/aispec-private`），在终端执行：
+若本机已有 **aispec 仓库**（clone 的或工作区内），在仓库根目录执行：
 
 ```bash
-cd /path/to/project/private/aispec-private
+cd /path/to/aispec
 npm link
 ```
 
-执行后，本机即可在任意目录使用 `aispec` 命令：
-
-```bash
-aispec init        # 在当前目录初始化 .aispec/spec/ 与模板
-aispec verify      # 校验约定与模板是否就绪
-```
-
-或使用 package 脚本（在 `private/aispec-private` 目录下）：
-
-```bash
-npm run link
-```
+或使用 package 脚本：`npm run link`。执行后即可在任意目录使用 `aispec` 命令。
 
 若 `aispec` 仍找不到，检查 Node/npm 全局路径（`npm config get prefix`），确保该路径下的 `bin` 已加入环境变量 PATH。
 
@@ -69,19 +58,11 @@ npx github:surlymochan/aispec#main verify
 
 ## 方式三：从本机 aispec 仓库路径运行
 
-若本机已有 aispec 仓库（如 `private/aispec-private` 或 clone 的 `aispec`），在**要初始化的目标仓库根目录**执行：
+若本机已有 aispec 仓库，在**要初始化的目标仓库根目录**执行（将 `/path/to/aispec` 换成本机 aispec 仓库路径）：
 
 ```bash
 node /path/to/aispec/cli/bin/aispec.js init
 node /path/to/aispec/cli/bin/aispec.js verify
-```
-
-例如 project 结构下：
-
-```bash
-# 在目标仓库根目录执行，将 /path/to/project 换成你的 project 根路径
-node /path/to/project/private/aispec-private/cli/bin/aispec.js init
-node /path/to/project/private/aispec-private/cli/bin/aispec.js verify
 ```
 
 ---
@@ -91,14 +72,14 @@ node /path/to/project/private/aispec-private/cli/bin/aispec.js verify
 在 shell 配置（如 `~/.zshrc`）里添加：
 
 ```bash
-alias aispec='node /path/to/project/private/aispec-private/cli/bin/aispec.js'
+alias aispec='node /path/to/aispec/cli/bin/aispec.js'
 ```
 
 或为可执行并加入 PATH（二选一）：
 
 ```bash
 # 复制到本地 bin（需先 chmod +x）
-cp /path/to/project/private/aispec-private/cli/bin/aispec.js ~/bin/aispec
+cp /path/to/aispec/cli/bin/aispec.js ~/bin/aispec
 chmod +x ~/bin/aispec
 # 确保 ~/bin 在 PATH 中
 ```

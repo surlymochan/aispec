@@ -51,7 +51,7 @@ npx github:surlymochan/aispec#main init
 
 | 项目 | 独立仓库采用 | 带业务项目的工作区（如 project） |
 |------|----------------|--------------------------------|
-| 约定来源 | .aispec/spec/ 或 docs/aispec/ | 通常为 private/aispec-private/spec（或复制到各项目） |
+| 约定来源 | .aispec/spec/ 或 docs/aispec/ | 通常为本仓库 spec/ 或工作区内 aispec 的 spec/ |
 | PROGRESS / 项目专属规则 | 不需要 | 业务项目/aispec.md（项目专属与 PROGRESS 统一维护） |
 | 入口 | 该仓库 README 或 AGENTS.md | project/README + aispec.md |
 

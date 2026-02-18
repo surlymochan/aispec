@@ -8,8 +8,8 @@
 |-----------|------|------------------------|
 | **aispec/spec**（本 CONVENTIONS 等） | **最权威**：工作流、结构、约定的规范定义与仲裁；变更经 SP 迭代后合并到 spec | 本文件即权威来源之一；project 及各子项目均应按 aispec 要求管理。 |
 | **业务项目/aispec.md** | **aispec 约定放置**：该业务项目对 aispec 的特殊定制（目录、密钥、GitHub、Git 身份等）与 PROGRESS 进展；通用内容在 spec | 不重复 CONVENTIONS；有歧义以 **aispec/spec** 为准。 |
-| **project/README.md** | **工作区入口**：Agent 必读、指向 aispec 与业务项目 aispec.md、各项目 | 要求遵守 aispec 与业务项目 aispec.md；**权威在 aispec**，README 通过 aispec.md 与 private/aispec-private 指向 spec。 |
-| **private/aispec-private/README.md** | **aispec 项目入口**：本仓库定位、目录、迭代列表 | 指向 **spec/**（含本 CONVENTIONS）；CONVENTIONS 为 spec 发布内容与权威定义的一部分。 |
+| **工作区 README**（如 project/README.md） | **工作区入口**：Agent 必读、指向 aispec 与业务项目 aispec.md | 要求遵守 aispec 与业务项目 aispec.md；**权威在 aispec/spec**。 |
+| **本仓库 README.md** | **aispec 仓库入口**：定位、目录、版本与采用方式 | 指向 **spec/**（含本 CONVENTIONS）；CONVENTIONS 为 spec 发布内容与权威定义的一部分。 |
 
 总结：**aispec/spec = 最权威，project 按 aispec 要求管理；所有业务项目对 aispec 的特殊定制与 PROGRESS 进展，统一在业务项目的 aispec.md 下维护；有歧义以本 CONVENTIONS 为准。**
 
@@ -29,7 +29,7 @@
 - **/mrd 后自动链**：/opensp → /prd → /design → /coding → /review → /test → /deploy；关键 report（REVIEW、TEST）**放入当前迭代目录**。
 - **/merge 后自动执行**（到此为止，不自动 /public、/push）：质量门（若有验收脚本须通过）→ 合并到 src+spec → 更新版本号 → 合并时反哺 PRD/DESIGN/README → **自 merge 后版本的自动检查**（如验收脚本或约定脚本对合并后 spec/src 的校验）。
 - **/public**（**脚本全自动**）：脱敏检查 → 同步到 public/aispec → **在 public 内运行测试** → git add & commit；**不执行 git push**。确保脱敏后最终呈现的 public 项目通过测试并已本地 commit，最后由人工执行 /push 更保险。
-- **/push**（**仅人工触发**）：在 /public 完成后，由人执行「在 public/aispec 内 git push」（或运行 do-push.sh）。**仅此一步为人工**，避免误推。
+- **/push**（**仅人工触发**）：在 /public 完成后，由人在发布目录内执行 git push。**仅此一步为人工**，避免误推。
 - **脱敏（/public 必过）**：脚本会自动检查拟发布内容（本机路径、硬编码 Token 等）；未通过则中止并提示。日常须保持 private 拟发布内容已脱敏（密钥、.env、本机路径等仅占位符或约定描述）。
 - **public 内测试**：同步到 public 后，脚本会在 **public/aispec** 内运行约定测试（默认 `node cli/bin/aispec.js verify`）；未通过则中止，不 commit、不 push，确保脱敏后最终呈现的项目可通过测试。
 - **PRD、DESIGN**：Agent 须**先多询问、澄清再落笔**，不得凭假设编写；信息不足时列出待确认项请负责人补充。
@@ -111,8 +111,8 @@
 | **/test** | 实现与验收标准 | **TEST 报告** | **当前迭代目录**（如 TEST.md） |
 | **/deploy** | src 或迭代产物、部署脚本 | 部署结果与验证结论 | 可记录于迭代 README 或单独报告 |
 | **/merge** | 验收通过、负责人确认 | 合并到 src+spec、版本号更新、反哺 PRD/DESIGN/README、自 merge 后版本的自动检查 | spec/、src/（若有）；质量门：验收脚本通过 |
-| **/public** | 人触发 | 脚本全自动：脱敏检查 → 同步到 public → 在 public 内测试 → git add & commit（不 push） | 在 project 根执行 push-to-public.sh；测试未通过则不 commit |
-| **/push** | 人触发 | 在 public/aispec 内执行 git push（仅此一步人工，更保险） | 执行 do-push.sh 或手动 git push |
+| **/public** | 人触发 | 脱敏检查 → 同步到发布目录 → 在发布目录内测试 → git add & commit（不 push） | 由工作区或维护流程约定执行；测试未通过则不 commit |
+| **/push** | 人触发 | 在发布目录内执行 git push（仅此一步人工，更保险） | 由维护者按约定执行 |
 
 - **REVIEW** 在 **/review** 环节生成，**TEST** 在 **/test** 环节生成，二者均置于**当前迭代目录**，便于追溯与合并时引用。
 - **发布流程**：**/mrd** → **/merge** → **/public**（脚本准备并本地 commit）→ **/push**（人工执行 git push）；/public 与 /push 分离，最后一步推送由人执行更保险。
