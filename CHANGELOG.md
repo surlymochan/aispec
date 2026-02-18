@@ -10,5 +10,5 @@
 ## 已合并迭代
 
 - **SP0001**：初始变更收敛（CONVENTIONS 一～五节等）。
-- **SP0002**：组件化能力 / spec 驱动编程支持（CONVENTIONS 零、八节及扩展，soul 放置约定，spec/templates，验收脚本）。
+- **SP0002**：组件化能力 / spec 驱动编程支持（CONVENTIONS 零、八节及扩展，工作区约束放置约定，spec/templates，验收脚本）。
 - **SP0003**：开源准备 + aispec CLI（LICENSE、CONTRIBUTING、独立采用、AGENTS 模板、cli init/verify）；GitHub surlymochan/aispec；不发布 npm。
