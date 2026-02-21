@@ -31,6 +31,10 @@ aispec verify
 
 将本仓库的 `spec/CONVENTIONS.md` 与 `spec/templates/` 复制到你的仓库（如 `.aispec/spec/` 或 `docs/aispec/`），并在 README 或 AGENTS.md 中注明「Agent 必读 .aispec/spec/CONVENTIONS.md」。
 
+**方式三 — Cursor 指令（v0.4.0+）**
+
+将本仓库的 `.cursor/commands/` 复制到工作区根目录 `.cursor/commands/`，即可在 Cursor 命令面板中执行 `/mrd`、`/merge`、`/public` 等。各指令文件**仅引用** [spec/CONVENTIONS.md](spec/CONVENTIONS.md)，不重复条文；见 [.cursor/commands/README.md](.cursor/commands/README.md)。
+
 ---
 
 ## 示例：业务项目如何使用 aispec

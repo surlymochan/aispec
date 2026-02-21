@@ -1,14 +1,5 @@
-# /merge — 合并到 src+spec
+# /merge — 合并到 public（不 commit）
 
-**指令**：验收通过、负责人确认后，将当前迭代合并到 src+spec、更新版本号、反哺 PRD/DESIGN/README，并执行自 merge 后版本的自动检查。
+**指令**：将当前迭代验收通过的代码与 spec 合并到 public 对应项目；不执行 git commit。执行时按 **CONVENTIONS** 条款操作。
 
-**输入**：验收通过、负责人确认。  
-**输出**：spec/、src/（若有）更新；版本号在 spec/README.md 更新；质量门（若有验收脚本须通过）。
-
-**执行步骤**：
-1. 确认 REVIEW、TEST 已就绪且验收通过；若有验收脚本须执行并通过。
-2. 将当前迭代的代码/配置合并到 **src/**，将已确认的 PRD/DESIGN/TEST/REVIEW 等合并到 **spec/**；实现与 PRD/DESIGN 有偏差时以实现为准反哺迭代内文档再合并。
-3. 在 spec/README.md 中更新**当前发布版本号**。
-4. 运行项目约定的「自 merge 后版本的自动检查」（若有）。不执行 /public、/push；可说「只合并不发布」跳过发布。
-
-**权威**：aispec spec/CONVENTIONS.md 第一、二、八节（8.1 表格 /merge；src/spec 合并规则）。
+**详见**：[spec/CONVENTIONS.md](../spec/CONVENTIONS.md) **第一节**（工作流 /merge）、**第二节**（项目结构、合并产出：完整项目文档）、**第八节 8.1**（表格 /merge）。有歧义以 CONVENTIONS 为准。

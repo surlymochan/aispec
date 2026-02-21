@@ -31,6 +31,10 @@ This creates `.aispec/spec/` (CONVENTIONS + templates) and optional root `AGENTS
 
 Copy this repo’s `spec/CONVENTIONS.md` and `spec/templates/` into your repo (e.g. `.aispec/spec/` or `docs/aispec/`). In README or AGENTS.md add: “Agent must read .aispec/spec/CONVENTIONS.md”.
 
+**Option C — Cursor commands (v0.4.0+)**
+
+Copy this repo’s `.cursor/commands/` into your workspace root `.cursor/commands/`. You can then run `/mrd`, `/merge`, `/public`, etc. from the Cursor command palette. Each command file **only references** [spec/CONVENTIONS.md](spec/CONVENTIONS.md) (no duplicated steps); see [.cursor/commands/README.md](.cursor/commands/README.md).
+
 ---
 
 ## Demo: How a project uses aispec
@@ -91,6 +95,7 @@ Details (inputs/outputs, templates, quality gates) are in [spec/CONVENTIONS.md](
 ## This repository
 
 - **spec/** — Authoritative workflow and structure: [CONVENTIONS.md](spec/CONVENTIONS.md), [spec/README.md](spec/README.md) (version), and [templates/](spec/templates/).
+- **.cursor/commands/** — Twelve Cursor command docs aligned with CONVENTIONS: `/mrd`, `/opensp`, `/prd`, `/design`, `/coding`, `/review`, `/test`, `/deploy`, `/merge`, `/public`, `/push`, `/check`. Copy this folder to your workspace root `.cursor/commands/` so you can trigger each step from the Cursor command palette; each file describes the step and points to CONVENTIONS. (Added in v0.4.0, SP0004.)
 - **cli/** — Optional [aispec CLI](cli/README.md): `init`, `verify`.
 - **docs/** — [CLI install](docs/cli-install.md), [standalone adoption](docs/standalone-adoption.md), [OpenSpec comparison](docs/openspec-comparison-and-open-source-readiness.md).
 
@@ -119,6 +124,7 @@ See [docs/openspec-comparison-and-open-source-readiness.md](docs/openspec-compar
 | [spec/CONVENTIONS.md](spec/CONVENTIONS.md) | Workflow, structure, deliverables, templates |
 | [spec/README.md](spec/README.md) | Current release version and contents |
 | [spec/templates/](spec/templates/) | proposal, tasks, AGENTS templates |
+| [.cursor/commands/](.cursor/commands/) | 12 Cursor command docs (/mrd, /merge, /public, …) for command palette |
 | [cli/README.md](cli/README.md) | CLI usage (init, verify) |
 | [docs/cli-install.md](docs/cli-install.md) | Install and run the CLI |
 | [docs/standalone-adoption.md](docs/standalone-adoption.md) | Adopt aispec in any repo |
