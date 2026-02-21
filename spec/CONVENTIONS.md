@@ -28,6 +28,7 @@
 
 - **人仅有四个触发点**：**/mrd**、**/merge**、**/public**、**/push**。顺序为 mrd → merge → public → push；其余步骤默认随上述指令自动串联或由人单独触发。
 - **/mrd 后自动链**：/opensp → /prd → /design → /coding → /review → /test → /deploy；关键 report（REVIEW、TEST）**放入当前迭代目录**。
+- **/mrd 后的默认行为**：用户仅触发 **/mrd** 时，Agent **默认接续执行** /prd → /design → /coding → /review → /test（必要时 /deploy），直至该链完成或用户明确暂停；不得在完成 MRD 后无故停止，除非负责人要求仅产出 MRD。
 - **/merge 后自动执行**（到此为止，不自动 /public、/push）：质量门（若有验收脚本须通过）→ 合并到 src+spec → 更新版本号 → 合并时反哺 PRD/DESIGN/README → **自 merge 后版本的自动检查**（如验收脚本或约定脚本对合并后 spec/src 的校验）。
 - **/public**（**脚本全自动**）：脱敏检查 → 同步到 public/aispec → **在 public 内运行测试** → git add & commit；**不执行 git push**。确保脱敏后最终呈现的 public 项目通过测试并已本地 commit，最后由人工执行 /push 更保险。
 - **/push**（**仅人工触发**）：在 /public 完成后，由人在发布目录内执行 git push。**仅此一步为人工**，避免误推。
@@ -106,7 +107,7 @@
 
 | 环节 | 输入 | 输出 / 交付物 | 交付物放置位置 |
 |------|------|----------------|----------------|
-| **/mrd** | 负责人需求（口述或文档） | 需求方向或 MRD 内容 | 由 Agent 整理后落盘至当前迭代 MRD.md |
+| **/mrd** | 负责人需求（口述或文档） | 需求方向或 MRD 内容 | 由 Agent 整理后落盘至当前迭代 MRD.md；**完成后默认接续** /prd → /design → … → /test |
 | **/opensp** | MRD（或等价需求） | 迭代目录、MRD 落盘、项目入口更新 | iteration/SP0xxx/；项目 README 或 aispec.md（PROGRESS） |
 | **/prd** | MRD + 澄清结果 | PRD.md | 当前迭代目录 iteration/SP0xxx/PRD.md |
 | **/design** | PRD | DESIGN.md、可选 tasks.md | 当前迭代目录 |
